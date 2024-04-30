@@ -1,7 +1,7 @@
 # Find sha1 Decrypted Value With Brute Force
 
 ## Requirements
-    [Golang](https://go.dev)
+- [**Golang**](https://go.dev)
 
 ## Running
 ```bash
