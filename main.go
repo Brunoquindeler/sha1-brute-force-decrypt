@@ -47,7 +47,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer file.Close()
 
 	inMemoryHashesMap := make(map[string]string)
 
@@ -58,8 +57,10 @@ func main() {
 		hash := fmt.Sprintf("%x", sha1.Sum([]byte(password)))
 		inMemoryHashesMap[hash] = password
 	}
-
 	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+	if err := file.Close(); err != nil { // Explicitly closing file to free memory resources
 		log.Fatal(err)
 	}
 
